@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>로그인</title>
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<script type="text/javascript">
+
+$(document).ready(function(){
+	
+// 	===============================회원가입이동========================================
+		var signUpX = screen.width/2 - 500/2;
+		var signUpY = screen.height/2 - 600/2;
+
+		$("#signUp").click(function(){
+			window.open("signup.html", "회원가입", "width = 500, height = 600" + ", left = " + signUpX + ", top = " + signUpY + ", scrollbars = no")
+			self.close();
+			break;
+		});
+		
+		var sign = $("#button").click(function(){
+			var id = $("#id").val()
+			var pw = $("#pw").val()
+			
+			if(id == ""){
+				alert("아이디를 입력하세요.");
+				$("#id").focus();
+				return;
+			}
+			if(pw == ""){
+				alert("비밀번호를 입력하세요.");
+				$("#pw").focus();
+				return;
+			}
+			
+			
+			
+			$.ajax({
+				
+				url: "js/loginCheck.json",
+				
+				dataType: "json",
+				
+				success: function(data) {
+					var i = 0;
+					while(true) {
+						if(i == data.length){
+							alert("아이디가 존재하지 않거나 비밀번호가 틀립니다.");
+							$("#id").val("");
+							$("#pw").val("");
+							$("#id").focus();
+							break;
+						}
+						if((id == data[i]["id"]) && (pw == data[i]["pw"])){
+							alert("로그인이 되었습니다.");
+ 							window.open("loginsuccessindex.html");
+							self.close();
+							break;
+						}//if
+						i++;
+					} //while()
+				} //successs
+				
+			});//ajax()
+			
+		})//click()
+		
+		
+// =========================엔터키로 버튼===========================================
+		$(".enter").keypress(function(f){
+			if(f.which ==13){
+				$("#button").click();
+				return false;
+			}
+		});//keypress()
+		
+
+		
+		
+		
+});
+</script>
+<style type="text/css">
+
+	*{
+		text-decoration: none;
+		list-style: none;
+		margin: 0px auto;
+	}
+	body{
+		background: rgb(238, 238, 238);
+	}
+	.login{
+		width: 410px;
+		position:absolute;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%,-50%);
+	}
+	
+	.login h2{
+		font-size: 32px;
+		color: #111;
+		border-bottom: 2px solid #111;
+		text-align: center;
+		line-height: 1;
+		padding: 0 0 20px;
+	}
+	ul{
+		padding: 40px 0px 33px;
+		
+	}
+	.login li{
+		padding: 0 0 12px;
+	}
+	.login li input{
+		width : 100%;
+		box-sizing: border-box;
+		height: 46px;
+		text-indent: 16px;
+		font-size: 16px;
+	}
+	.login li input::-webkit-input-placeholder { 
+		font-size: 16px;
+		color:#9fa19f;
+		text-indent: 16px;
+	}
+	.login #button {
+		width: 100%;
+		background: linear-gradient(to right, black, #666);
+		height: 56px;
+		line-height: 56px;
+		font-size:18px;
+		color: white;
+		border: 0px;
+	}
+	.login div:firts-child{
+		padding : 0 0 45px;
+	}
+	#signUp{
+		cursor: pointer;
+	}
+	div {
+		text-align: center;
+	}
+	
+	#button{
+		cursor: pointer;
+	}
+	
+/* 	input:focus::-webkit-input-placeholder,  */
+/* textarea:focus::-webkit-input-placeholder {  */
+/* 	/* WebKit browsers */  */
+/* 	color:transparent;  */
+/* }  */
+
+</style>
+</head>
+<body>
+	
+	<section class="login">
+		<h2>로그인</h2>
+		<ul>
+			<li><input type="text" class="enter" tabindex="1" placeholder="아이디" name="id" id="id" title="아이디입력" /></li>
+			<li><input type="password" class="enter" tabindex="2"  placeholder="비밀번호" name="pw" id="pw" title="비밀번호입력" /></li>
+			<li><input type="button" name="button" id="button" tabindex="3" value="로그인" ></li>
+		</ul>
+		<div>
+			<a id="signUp"  tabindex="4" >아직 회원이 아니신가요?  회원가입</a>
+		</div>		
+	</section>
+	
+</body>
+</html>

@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>J S Y - Developer Office</title>
+<style type="text/css">
+@import url("css/index.css"); 
+
+</style>
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+
+
+
+<script type="text/javascript">
+
+$(document).ready(function(){
+	
+	
+// ================================로그인 팝업=============================================
+	var loginX = screen.width/2 - 500/2;
+	var loginY = screen.height/2 - 600/2;
+	
+	$("#login").click(function(){
+		alert("로그아웃 되었습니다.");
+		location.href="index.html";
+	});
+	
+	
+// ===============================회원가입 팝업==================================
+	var signUpX = screen.width/2 - 500/2;
+	var signUpY = screen.height/2 - 600/2;
+
+	$("#signUp").click(function(){
+		var signUp = window.open("signup.html", "회원가입", "width = 500, height = 600" + ", left = " + signUpX + ", top = " + signUpY + ", scrollbars = no")
+	});
+	
+// ===============================슬라이드 화면==================================
+	
+	var refreshInterval = null;
+	var timer = null;
+	var imgCnt = $('#slider').children().length;
+	var imgIdx = 1;
+	
+	function moveSlider(index) {											// index를 매개 변수로 받는 moveSlider()라는 메서드를 생성
+		var willMoveLeft = -(index * 508.5)									// 이미지가 왼쪽으로 이동해야할 픽셀, 왼쪽으로 가야해서 -를 붙여준다.
+			
+		$('#slider').animate({										// slider_panel 클래스들에 animate() 메서드 작동
+			left: willMoveLeft												// 왼쪽으로 willMoveLeft만큼 이동
+		}, 'slow'); // animate()											// 천천히
+		
+		$('.slide[data-index =' + index + ']').show().animate({		// slider_text의 data-index 속성의 index번째 값을 보여주고 animate() 메서드 작동
+			left: 0
+		}, 'slow'); // animate()
+
+		$('.slide[data-index !=' + index + ']').hide('slow', function() { // slider_text의 data-index 속성의 index번째 값이 아닌 것을 천천히 숨기고 함수 작동
+			$(this).css('left', -1000);											// 왼쪽으로 300만큼 이동
+		}); // hide
+		
+// 		$('.control_button[data-index =' + index + ']').addClass('active');
+// 		$('.control_button[data-index !=' + index + ']').removeClass('active');
+	} // moveSlider()
+	
+	timer = function() {													// 변수 timer에 함수 설정
+		moveSlider(imgIdx);
+		
+		if (imgIdx < imgCnt - 1) {
+			imgIdx++;
+		} else {
+			imgIdx = 0;
+		} // if else
+	} // timer
+	
+	$('#div2').on({												// 마우스 들어오면 정지, 나가면 다시 자동으로 돌아가게 하기
+		mouseenter: function() {
+			clearInterval(refreshInterval);
+		}, // mouseenter
+		mouseleave: function() {
+			refreshInterval = setInterval(timer, 3500);
+		} // mouseleave
+		
+	}); // on()
+	
+// 	$('.control_button').each(function(index) {								// control_button 클래스를 가진 값들을 각각 지정
+// 		$(this).attr('data-index', index).click(function() {				// data-index라는 속성으로 index를 주고 클릭시 함수를 작동한다.
+// 			var index = $(this).attr('data-index');							// 현재 객체의 data-index라는 속성의 값을 index 라는 변수에 대입한다.
+// 			imgIdx = index;													// 클릭한 index를 imgIdx로 받는다.
+// 			moveSlider(index);												// index를 매개 변수로 받는 moveSlider()라는 메서드를 작동
+// 		}); // click()
+// 	}); // each()
+	
+	$('.slide').css('left', -300).each(function(index) { 				// slider_text 클래스를 가진 값들을 각각 지정
+		$(this).attr('data-index', index);									// 각각에 data-index라는 속성으로 index를 주겠다.
+	}); // each()		
+
+	$('.slide[data-index =' + 0 + ']').show().animate({				// slider_text 클래스중에 0번째 값을 지정하고 animate 메서드를 보여줌.
+		left: 0
+	}, 'slow');	
+	
+// 	$('.control_button[data-index=' + 0 + ']').addClass('active');			// control_button 클래스중에 0번째 값을 활성화
+	
+	refreshInterval=setInterval(timer,3500);								// timer함수를 1초마다 돌림
+//		var randomNumber = Math.round(Math.random() * 4);	// 0 ~ 4 랜덤 생성
+//		moveSlider(randomNumber);
+	
+	
+///////////////////////////////로그인/////////////////////////////////////	
+	
+	
+	
+	
+});//ready
+</script>
+
+
+
+
+</head>
+<body>
+	<header>
+			<div id="header1">
+				<h1>J S Y - Developer Office / Java and View </h1>
+				<h5>  DONATION ▶</h5>
+			</div>
+			<div id="header2">
+				<button id="login" onclick="login.focus()">Logout</button>
+				
+				<button id="signUp" onclick="signUp.focus()">SignUp</button>
+			</div>
+		</header>
+		
+		<div id=content>
+			<div id=content1>
+				<div id="div1">
+					<ul>
+						<li>Information.</li>
+							<br />
+							<br />
+						<li>ADDRESS</li>
+						<li>GunWang-ro, Buk-gu, Gwangju, Republic of</li>
+						<li></li>
+						<li>Korea</li>
+							<br/>
+							<br/>
+						<li>CELL</li>
+						<li>010-3434-0493</li>
+							<br />
+							<br />
+						<li>E-MAIL</li>
+						<li>jmgenius683@gmail.com</li>
+							<br />
+						<li>
+							<div style="height:15px">
+								<a href="http://www.instagram.com"><img alt="in" src="img/instar.png"></a>
+								<a href="http://www.twitter.com"><img alt="in" src="img/twitter.png"></a>
+								<a href="http://www.facebook.com"><img alt="in" src="img/facebook.png"></a>
+							</div>
+						</li>
+					</ul>
+				</div>
+				<div id="div2">
+					<div id="container">
+					<ul id="slider">
+						<li class="silde"><a href="http://ikukbo.com/" ><img  alt="1" src="img/1.jpg"></a></li>
+						<li class="silde"><a href="http://www.dawon.com" ><img alt="2" src="img/2.jpg"></a></li>
+						<li class="silde"><a href="https://samwonsd.co.kr/" ><img alt="3" src="img/3.jpg"></a></li>
+						<li class="silde"><a href="http://www.eunmin.co.kr/_em/main/main.html" ><img alt="4" src="img/4.jpg"></a></li>
+						<li class="silde"><a href="http://www.dongilinterior.com/" ><img alt="5" src="img/5.jpg"></a></li>
+						<li class="silde"><a href="http://www.eomjihouse.co.kr/" ><img alt="6" src="img/6.jpg"></a></li>
+					</ul>
+					</div>
+				</div>
+			</div>
+			<div id=content2>
+					<a>Copyrightⓒ All Rights Reserved. by JSY &nbsp;&nbsp;</a>
+			</div>
+		</div>
+		
+		<footer>
+			<table>
+				<tr>
+					<td><a href="http://ikukbo.com/"><img alt="1" src="img/1.jpg">Comfortable</a></td>
+					<td><a href="http://www.dawon.com"><img alt="2" src="img/2.jpg">Enterprise</a></td>
+					<td><a href="https://samwonsd.co.kr/"><img alt="3" src="img/3.jpg">Innovation</a></td>
+				</tr>
+				<tr>
+					<td><a href="http://www.eunmin.co.kr/_em/main/main.html"><img alt="4" src="img/4.jpg">Creative</a></td>
+					<td><a href="http://www.dongilinterior.com/"><img alt="5" src="img/5.jpg">Progressive</a></td>
+					<td><a href="http://www.eomjihouse.co.kr/"><img alt="6" src="img/6.jpg">Inventive</a></td>
+				</tr>
+			</table>
+		</footer>
+		
+</body>
+</html>

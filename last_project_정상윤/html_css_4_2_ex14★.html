@@ -1,0 +1,183 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@900&display=swap" rel="stylesheet">
+
+<style>
+	@import url("placeholder_focus.css");
+	* {
+		font-family: 'Noto Sans KR', sans-serif;
+	}
+	
+	form {
+		width: 500px;
+		margin: 0px auto;
+	}
+	
+	input {
+		border: 1px solid blue;
+	}
+
+	input::placeholder {
+	  color: red;
+	  font-style: italic;
+	}
+	
+	textarea::placeholder {
+	  color: blue;
+	  font-weight: bold;
+	  font-style: italic;
+	}
+	
+	input[type="password"] {
+		border: 1px solid red;
+	}
+	
+	table {
+		border-collapse: collapse;
+	}
+	
+	td {
+		border: 1px solid black;
+		padding: 3px;
+	}
+	
+	table tr td:nth-child(1) {
+		text-align: center;
+	}
+	
+	table tr td:nth-child(2) {
+		padding: 5px 0px 5px 5px ;
+	}
+	
+	span {
+		color: red;
+	}
+	
+	#phone1, #phone2, #phone3 {
+		color: red;
+	}
+</style>
+</head>
+<body>
+	<!--
+	placeholder : 입력필드에 샘플값이나 포맷을 설명
+	value : 태그 내부에 글자 입력 
+	-->
+<form action="#" method="get" name="form" id="form">
+	<table>
+	<caption>인적사항</caption>
+	<tr>
+		<td>이름</td>
+    <td>
+	    <input type="text" name="name" id="name" 
+	    placeholder="이름을 입력하세요" 
+	    onkeypress="if(event.keyCode==13){return false;}" /><span>name</span>
+    </td>
+	</tr>
+	
+	<tr>
+		<td>아이디</td>
+		<td>
+			<input type="text" name="id" id="id" 
+	    placeholder="아이디를 입력하세요" 
+	    onkeypress="if(event.keyCode==13){return false;}" /><span>id</span>
+		</td>
+	</tr>
+	<tr>
+		<td>비밀번호</td>
+		<td>
+			<input type="password" name="pw" id="pw" 
+	    placeholder="비밀번호를 입력하세요" 
+	    onkeypress="if(event.keyCode==13){return false;}" /><span>pw</span>
+		</td>
+	</tr>
+	<tr>
+		<td>연락처</td>
+		<td>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     
+			<input type="text" name="phone1" id="phone1" size="3" maxlength="4" value="phone1" /> - 
+	    <input type="text" name="phone2" id="phone2" size="4" maxlength="4" value="phone2" /> - 
+	    <input type="text" name="phone3" id="phone3" size="4" maxlength="4" value="phone3" /><br />
+	    
+	    <input type="hidden" name="hidden" id="hidden" value="12345" />
+			<!--  
+				이전 요청처리에 대한 값을 다음 요청에서도 연속성을 갖기위해 사용하며 세션등을 이용하면 대체가능 
+				<form action="/login" type="post">
+				<input type="hidden" name="id" value="id" />
+				<input type="hidden" name="pw" value="pw" />
+				</form> 
+			-->	
+		</td>
+	</tr>
+	<tr>
+		<td>사진</td>
+		<td>
+			<input type="file" name="file" id="file" /><span>file</span>
+		</td>
+	</tr>
+	<tr>
+		<td>성별</td>
+		<td>
+			<input type="radio" name="gender" id="male" value="male" checked="checked">남 
+	    <input type="radio" name="gender" id="female" value="female">여
+	    <span>gender</span>
+		</td>
+	</tr>
+	<!-- 데이터가 전송될 때는 같은 name의 데이터가 사용되므로 language=kor&language=eng 형태로 서버에 전송하거나
+    	또는 language=kor,eng이렇게 한개의 Key에 두개의 값이 ,(콤마)로 구분되어 서버에 전송 
+    	https://openlife.tistory.com/381-->
+	<tr>
+		<td>사용언어</td>
+		<td>
+			<input type="checkbox" name="language" value="kor" checked="checked" />한글 
+     	<input type="checkbox" name="language" value="eng" />영어 
+      <input type="checkbox" name="language" value="jap" />일어 
+      <input type="checkbox" name="language" value="chi" />중국어
+      <span>language</span>	
+		</td>
+	</tr>
+	<tr>
+		<td>자기소개</td>
+		<td>
+			<textarea rows="5" cols="20" name="introduction" id="introduction" 
+	    onclick="this.value='';"
+	    placeholder="간단하게 입력하세요."></textarea> <!-- 간단하게 입력하세요 ☜ value -->
+	    <span>introduction</span>
+		</td>
+	</tr>
+	<tr>
+		<td>국적</td>
+		<td>
+			<select name="nation" id="nation">
+				<option value="korea" selected="selected">KOREA</option>
+				<option value="usa">USA</option>
+				<option value="japan">JAPAN</option>
+				<option value="china">CHINA</option>   
+	    </select>
+	    <span>nation</span>
+		</td>
+	</tr>
+	<tr>
+		<td>좋아하는음식</td>
+		<td>
+			<select multiple="multiple" name="food" id="food">
+				<option value="kimchi" selected="selected">김치</option>
+				<option value="bulgogi">불고기</option>
+				<option value="pajeon" selected="selected">파전</option>
+				<option value="bibimbab">비빔밥</option>
+	    </select>
+	    <span>food</span>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2">
+			<input type="submit" value="전송" /> <!-- value 유무 확인 -->
+	    <input type="reset"  value="취소 " onclick="history.back();"/>
+		</td>
+	</tr>
+	</table>
+</form>
+</body>
+</html>
