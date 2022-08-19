@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	//창크기
+	var w = 300;
+	var h = 400;
+	//창위치
+	var l = 300;
+	var t = 100;
+	//정중앙 위치
+	var x = screen.width/2 - w/2;
+	var y = screen.height/2 - h/2;
+	
+	var popup1 = window.open("","","width=" + w + ", height=" + h 
+			+ ", left=" + l + ", top=" + t);
+
+	var popup2 = window.open("","","width=" + w + ", height=" + h 
+			+ ", left=" + (l+w) + ", top=" + t);
+		
+</script>
+</head>
+<body>
+	<p>
+		<button onclick="popup1.moveTo(200,300);popup1.focus();popup2.focus();">popup1 브라우저 창 위치(200,300) 변경</button>
+		<!-- 크롬이나 오페라는 적용이 안됨 -->
+		<!-- popup1.focus(); 창을 가장 앞으로 띄움 -->
+	</p>
+	<p>
+		<button onclick="popup1.resizeTo(200,300);;popup1.focus();popup2.focus();">브라우저 창 크기(200,300) 변경</button>
+	</p>
+	
+	<p>
+		<button onclick="popup1.moveTo(300,100);popup1.resizeTo(300,400);popup1.focus();popup2.focus();">popup1 브라우저 창 위치(300,100), 창 크기(300,400) 원래 대로</button>
+	</p>
+	
+	<p>
+		<button onclick="popup1.moveTo(x,y);popup1.focus();popup2.focus();">popup1 가운데로 창 띄우기</button>
+	</p>
+	
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
