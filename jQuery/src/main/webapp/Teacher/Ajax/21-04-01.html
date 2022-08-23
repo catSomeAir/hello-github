@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>jQuery Ajax Basic</title>
+<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+<script>
+	$(document).ready(function() {
+		
+		$("#start_ajax").click(function() {
+			
+			$.ajax({
+				
+				url : "data/data.xml",
+				type : "post",
+				success : function(result) {
+					// find() 메서드 : xml 문서객체 다룸
+					$(result).find("product").each(function() { //xml 파일인 경우 find().each(function(){}); 메서드 사용
+						// 변수 선언하여 문서요소 저장합니다. product 를 표현할 길이 없어 this로 표현
+						var name = $(this).find("name").text();	// this : product, 문서요소 추출만
+						var price = $(this).find("price").text();// 문서요소 추출만
+						// 출력합니다.
+						$("body").append("<h1>" + name + " : " + price + "</h1>");
+					});
+				} //success
+			
+			});	//ajax
+			
+		}); //click
+		
+	}); //reday
+</script>
+</head>
+<body>
+	<button id="start_ajax">서버와 통신시작</button>
+</body>
+</html>

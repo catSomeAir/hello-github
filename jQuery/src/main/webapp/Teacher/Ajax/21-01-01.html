@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>jQuery Ajax Basic</title>
+<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+<script>
+	// jQuery에서 제공하는 기본적인 $.ajax() 메서드
+	// 형태1 => $.ajax(url, {옵션객체})
+	// 형태2 => $.ajax({옵션객체}) ☜ 주로 사용
+
+	$(document).ready(function() {
+		
+		$("#start_ajax").click(function(){
+			
+			$.ajax({
+				
+				url : "data/data.html", // 서버에 요청할 url : ip주소:포트번호/파일경로/xxx.do?id=xxx
+				type : "get", //서버로의 데이터 전송 타입. GET 또는 POST
+				dataType: "html", //서버에서 내려온 데이터 타입. xml, json, html, script
+				success : function(result) { // result : Ajax가 성공했을때 받은 데이터, 요청 매개변수 지정
+					$("body").append(result);	// 추가해서 출력, 크롬 검사, 새로고침 후 네트워크 탭에서 status 200이면 통신성공
+				} //success
+				
+			}); //ajax
+			
+		}); //function
+			
+	}); //ready
+</script>
+</head>
+<body>
+	<button id="start_ajax">서버와 통신시작</button>
+</body>
+</html>

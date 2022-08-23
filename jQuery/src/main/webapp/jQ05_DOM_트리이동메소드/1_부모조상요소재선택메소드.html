@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<script>
+
+$(document).ready(function(){
+	$("li").parents().css({
+		"padding":"20px",
+		"border":"1px solid black"
+	});
+		$("li").parents("section").css("border-color", "red");
+		$("li").parent().css("border-color", "blue");
+		$("li").parentsUntll("body").css("border-style", "dashed");
+		
+});//ready
+
+</script>
+</head>
+<body>
+	<section><!-- 증조할아버지 -->
+		<div>
+			<ul>
+				<li>리스트태그</li>
+				<li>리스트태그</li>
+				<li>리스트태그</li>
+				<li>리스트태그</li>
+				<li>리스트태그</li>
+			</ul>
+		</div>
+	</section>
+		<img src="부모조상요소.png">
+</body>
+</html>

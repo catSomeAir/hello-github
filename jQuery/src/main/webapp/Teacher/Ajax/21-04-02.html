@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Ajax</title>
+<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+<script>
+	//$(function() {
+	$(document).ready(function() {
+		
+		$.ajax({ //외부에 데이터 전송 또는 요청합니다.
+			
+			url : "data/rank.xml", //데이터를 요청할 URL 주소
+			dataType : "xml", //요청할 데이터의 타입
+			success : function(result) { //성공적으로 XML 데이터가 요청되었을 때...
+				
+				if ($(result).find("rank").length > 0) { //요청한 XML데이터에서 <rank>태그의 개수가 0보다 클때
+					
+					$(result).find("rank").each(function() { //xml 파일인 경우 find().each(function(){}); 메서드 사용
+						var name = $(this).find("k").text(); //this:rank,<k>태그의 텍스트를 변수 "name"에 할당
+						var result = "<li>" + name + "</li>";
+						$("#wrap ol").append(result);
+					}); //each
+				
+				} //if
+			
+			} //sucess
+		
+		}); //ajax
+		
+	}); //ready
+</script>
+</head>
+<body>
+	<h1>인기 검색어</h1>
+	<div id="wrap">
+		<ol></ol>
+	</div>
+</body>
+</html>

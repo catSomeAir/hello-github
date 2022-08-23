@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<script>
+//● jQ로 html받기 : 제목태그1 이라는 값을 가져와보자, 제이쿼리는 html()메소드가 게터세터 역할을 한다. 매개변수를 입력하면 세터역할, 비우면 게터역할//ㅁ
+$(document).ready(function(){
+	//① 같은태그중 첫번째 태그만 게터
+		alert($("h1").html());	
+});//ready
+
+</script>
+</head>
+<body>
+	<h1>제목태그1</h1>
+	<h1>제목태그2</h1>
+	<h1>제목태그3</h1>
+</body>
+</html>

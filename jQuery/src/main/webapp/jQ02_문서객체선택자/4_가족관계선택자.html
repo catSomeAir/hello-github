@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<script>
+
+$(document).ready(function(){
+
+	//1.자손선택자 : >
+	$(".box>ul").css("border","3px solid black");
+	$(".box>ul").css("color","red");			//ul에 글자색을 주면 list색이 바뀐다.
+	
+	//2.후손선택자 : 공백
+	$(".box ul").css("color","black");
+	
+	
+	//4. 동위선택자 : 모든요소
+	$("h3+h4").css("color","red");
+	$("h3+h4").css("text-decoration","underline");
+	
+	
+});//ready
+
+</script>
+</head>
+<body>
+	<div class="box">
+		<ul>
+			<li>리스트태그</li>
+			<li>리스트태그</li>
+			<li>리스트태그</li>
+			<li>리스트태그</li>
+			<li>리스트태그</li>
+		</ul>
+	</div>
+	
+	<hr />
+	
+		<h3>제목태그3</h3>
+		<h4>제목태그4</h4>
+		<h4>제목태그4</h4>
+		<h4>제목태그4</h4>
+		<h4>제목태그4</h4>
+		<h4>제목태그4</h4>
+</body>
+</html>

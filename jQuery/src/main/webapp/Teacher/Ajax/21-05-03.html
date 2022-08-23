@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+	<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+	<script>
+		$(document).ready(function(){
+			
+			$("#execute").click(function(){
+				
+				$.ajax({
+					
+					url: "data/time.jsp",
+					type: "post", 
+
+					// serialize()메서드 : 입력양식의 내용을 요청 매개변수 문자열로 만듦.
+					// 연속극으로 방송하다; 연재하다
+					// fname=값&femail=값&sex=값&job=값 이렇게 안해줘도 됩니다.
+					// 즉, timezone=값&format=값으로 넘길 필요 없음
+					// 즉, timezone=Asia%2FSeoul&format=Y-m-d+H%3Ai%3As
+					data: $("form").serialize(), // data : 보내는 데이터
+					
+					success: function(result){
+						$("#time").text(result);
+					} //success
+					
+				}); //ajax
+				
+			}); //click function
+			
+		}); //ready
+	</script>
+	
+	
+</head>
+<body>
+	<p>time ☞ <span id="time"></span></p>
+	<form>
+		<select name="timezone">
+			<option value="Asia/Seoul">asia/seoul</option>
+			<option value="America/New_York">America/New_York</option>
+		</select>
+		<select name="format">
+			<option value="Y-m-d H:i:s">Y-m-d H:i:s</option>
+			<option value="Y-m-d">Y-m-d</option>
+		</select>	
+	</form>
+	<input type="button" id="execute" value="execute" />
+
+</body>
+</html>

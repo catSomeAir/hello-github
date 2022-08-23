@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title></title>
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+
+<script>
+
+	$(document).ready(function() {
+	// 		개별적으로 하나씩 선택
+	//  	$("h1").css("background-color","black");
+	//  	$("h1").css("color","yellow");
+	
+	//		메서드 체이닝
+	// 		$("h1").css("background-color","black").css("color","yellow");
+	
+	// 객체형태 ☞ {
+	//		"속성" : "속성값", //세미콜론 없음, 컴마로 구분
+	//		"속성" : "속성값"  //세미콜론 없음, 컴마로 구분
+	//	} 중괄호 형태
+	
+	 	$("h1").css({
+	 		"background-color":"black", //세미콜론 없음, 컴마로 구분
+	 		"color":"yellow"						//세미콜론 없음, 컴마로 구분, 마지막속성은 컴마없음
+	 	});
+	 	
+	}); //ready
+
+</script>
+</head>
+<body>
+	<h1>제목태그1</h1>
+	<h1>제목태그2</h1>
+	<h1>제목태그3</h1>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

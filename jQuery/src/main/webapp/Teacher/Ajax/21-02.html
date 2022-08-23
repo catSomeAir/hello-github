@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>jQuery Ajax Basic</title>
+<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+<script>
+	//그냥 HTML 태그를 가져와 문서객체에 출력할때는 
+	//$(selector).load() 메서드 사용
+	//$("요소선택").load(url, data, 콜백함수) ☞ data와 콜백함수는 생략가능
+	
+	$(document).ready(function() {
+	
+		$("#start_ajax").click(function(){
+
+			$("#txt").load("data/data.html");
+		
+		}); //click
+	
+	}); //ready
+</script>
+</head>
+<body>
+	<button id="start_ajax">서버와 통신시작</button>
+	<div id="txt"></div>
+</body>
+</html>

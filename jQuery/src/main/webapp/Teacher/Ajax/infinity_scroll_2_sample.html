@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title></title>
+<style type="text/css">
+	.pageTitle {
+		position: fixed;
+		left: 0px;
+		top: 0px;
+		width: 100%;
+		height: 50px;
+		line-height: 50px;
+		color: white;
+		text-align: center;
+		background-color: blue;
+	}
+	
+	article {
+		padding: 50px 5%;
+	}
+	
+	article .block {
+		padding: 20px;
+		min-height: 500px;
+	}
+	
+	article .block p {
+		line-height: 20px;
+		color: white;
+		font-size: 16px;
+		font-weight: bold;
+	}
+	
+	article .block:nth-child(odd) {
+		background-color: green;
+	}
+	
+	article .block:nth-child(even) {
+		background-color: gray;
+	}
+</style>
+<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+<script>
+$(document).ready(function() {
+
+	var count = 0;
+	
+	$(window).scroll(function(){
+		
+		var scrollHeight = $(window).scrollTop() + $(window).height();
+		 //스크롤바까지의 높이      + 나머지 안보이는곳까지의 높이	
+		var documentHeight = $(document).height(); //문서의 높이
+		
+		if (scrollHeight == documentHeight) {
+			count++;
+			$("article").append("<div class='block'>" + count 
+					+ "번째 추가된 컨텐츠</div>"); //block 클래스 추가
+		}	
+		
+	});//scroll
+	
+	
+	
+});//ready
+</script>
+</head>
+<body>
+	<header>
+		<h1 class="pageTitle">Infinity scroll</h1>
+	</header>
+	<article>
+		
+		<div class="block">
+			<p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+				Voluptatem mollitia accusamus sequi ipsa, rerum nam laboriosam,
+				ipsam aperiam deleniti beatae expedita id quisquam veritatis
+				corporis, voluptates ducimus molestiae eum adipisci.</p>
+		</div>
+		<div class="block">
+			<p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+				Voluptatem mollitia accusamus sequi ipsa, rerum nam laboriosam,
+				ipsam aperiam deleniti beatae expedita id quisquam veritatis
+				corporis, voluptates ducimus molestiae eum adipisci.</p>
+		</div>
+		<!-- 반복 -->
+	</article>
+</body>
+</html>

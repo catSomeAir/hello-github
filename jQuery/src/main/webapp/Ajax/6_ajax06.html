@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title></title>
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<script>
+
+$(document).ready(function(){
+
+	//#start_ajax라는 id를 가진 버튼을 눌렀을 때
+	$("#start_ajax").click(function(){
+		//ajax통신이 되게 할거고
+		$.ajax({
+			
+			//그때 통신은 data/data.json과 연결해서
+			url: "data/data.json",
+			
+			//연결 된 경우에는 
+			success: function(result){
+				//통신해온걸 하나하나씩 전부each() "key" : "value" 매개 로 받아와서
+				$(result).each(function(key,value){			//key는 index, value는 {} 친구들 전체
+					//html의 body태그에 추가append 할것임 : value.(key해당글자)
+					$("body").append("<br />" + value.name + " : " + value.dollar + " : " + value.won);				
+				
+				});
+			}
+		});
+	});
+	
+});//ready
+
+</script>
+</head>
+<body>
+<button id="start_ajax">서버와 통신시작</button>
+</body>
+</html>

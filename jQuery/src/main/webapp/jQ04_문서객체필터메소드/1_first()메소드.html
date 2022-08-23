@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<script>
+	//●first메소드로 재선택
+$(document).ready(function(){
+	//①메소드로 선택
+	$("h1").first().css("color","red");
+	
+	//②선택자로 선택
+	$("h2:first").css("text-decoration","underline");
+	
+});//ready
+
+</script>
+</head>
+<body>
+	<h1>제목태그</h1>
+	<h1>제목태그</h1>
+	<h1>제목태그</h1>
+	<h1>제목태그</h1>
+	<h1>제목태그</h1>
+	
+	<h2>제목태그</h2>
+	<h2>제목태그</h2>
+	<h2>제목태그</h2>
+	<h2>제목태그</h2>
+	<h2>제목태그</h2>
+	
+	
+</body>
+</html>

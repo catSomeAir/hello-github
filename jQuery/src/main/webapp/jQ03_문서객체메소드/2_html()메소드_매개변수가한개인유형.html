@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<script>
+//● jQ로 html받기 : 제목태그1 이라는 값 바꿔보자, 제이쿼리는 html()메소드가 게터세터 역할을 한다. 매개변수를 입력하면 세터역할, 비우면 게터역할//ㅁ
+$(document).ready(function(){
+	//② 메소드안을 채우면 : 세터역할 , 세터는 태그 모두다 바꾼다.
+	$("h1").html("title tag");
+});//ready
+
+</script>
+</head>
+<body>
+	<h1>제목태그1</h1>
+	<h1>제목태그2</h1>
+	<h1>제목태그3</h1>
+</body>
+</html>

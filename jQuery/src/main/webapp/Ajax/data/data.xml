@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<products>
+	<product>
+		<name>milk</name>
+		<price>2000</price>
+	</product>
+	<product>
+		<name>black tea</name>
+		<price>6000</price>
+	</product>
+	<product>
+		<name>coffee</name>
+		<price>5000</price>
+	</product>
+</products>

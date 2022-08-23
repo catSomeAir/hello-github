@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Ajax</title>
+<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+<script>
+	//$(function() {
+	$(document).ready(function() {
+		
+		$.ajax({
+			
+			url : "data/rank.json", //데이터를 요청할 URL 주소
+			dataType : "json", //데이터 타입 설정
+			success : function(result) { //성공적으로 json 데이터가 요청되었을 때
+				$.each(result.rank, function(key, value) {
+					$("#wrap ol").append("<li>" + value.k + "</li>");
+				}); //function
+			} //success
+		
+		}); //ajax
+		
+	}); //ready
+</script>
+</head>
+<body>
+	<h1>인기 검색어</h1>
+	<div id="wrap">
+		<ol></ol>
+	</div>
+</body>
+</html>

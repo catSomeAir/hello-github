@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<script>
+
+$(document).ready(function(){
+	$("#btn").click(function(){
+		$.ajax({
+			//받아오는 데이터 json타입이고
+			dataType : "json",
+			//그 주소는 
+			url : "http://api.gwangju.go.kr/json/lineInfo",
+			//연결되면
+			success : function(data){ resultHtml(data);},
+				
+			error : function(){alert("JSON Data Loading Error!!!");}
+		});//ajax
+	});//click()
+});//ready()
+
+
+//★ 비정상적 JSon파일 접근시 : CORS error
+//① 구글 확장프로그램 : Allow Control allow origin 어쩌고 받아서 활성화시켜준다
+//② 
+function resultHtml(data){
+// 	alert("JSON Data Loading Success!!!")
+	var html = "<table border='1'>";
+	html += "<tr>";
+	html += "<th>노선번호</th>";
+	html += "<th>첫차</th>";
+	html += "<th>막차</th>";
+	html += "<th>배차시간</th>";
+	html += "<th>출발지</th>";
+	html += "<th>도착지</th>";
+	//JSON파일 필터링 : each()
+	$.each(data, function(key, value){
+		if(key == "LINE_LIST"){
+			$.each(value, function(key,value){
+				html += "<tr align='center'>";
+				html += "<td>" + value.LINE_NAME + "</td>";
+				html += "<td>" + value.FIRST_RUN_TIME + "</td>";
+				html += "<td>" + value.LAST_RUN_TIME + "</td>";
+				html += "<td>" + value.RUN_INTERVAL + "</td>";
+				html += "<td>" + value.DIR_UP_NAME + "</td>";
+				html += "<td>" + value.DIR_DOWN_NAME + "</td>";
+				html += "</tr>";
+			});//each()
+		}
+		
+	});	//each()
+	
+	
+	html += "</tr>";
+	html += "</table>"
+	$("#display").html(html);
+}//resultHtml()
+
+</script>
+</head>
+<body>
+	<button id="btn">광주광역시 버스 노선정보</button>
+	<br /><br />
+	<div id="display">
+		여기에 버스 노선 정보가 출력됩니다.
+	</div>
+</body>
+</html>

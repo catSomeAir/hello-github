@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<script>
+
+$(document).ready(function(){
+	
+	$("#start_ajax").click(function(){
+		$.ajax({			//클릭하면 ajax통신 할거야
+			//필수요소 url주소, success는 필수
+			url: "data/data.html",			//객체라 콤마로 구분, 명령어는 세미콜론줘야해해애애앵
+			
+			success : function(result){
+				//url접속하여서 받아올자료들(변수추가,ex)result) 추가하기 : append()
+				$("body").append(result);
+				
+			} //success()
+			
+			
+		});
+		
+	});
+});//ready
+
+// &("A").B(function({
+// 	$.ajax({
+// 		url : a
+// 		success : function({
+// 			$("~").~();		←'가'
+// 		})
+// 	})
+// }))
+</script>
+</head>
+<body>
+	<button type="button" id="start_ajax">서버와 통신시작</button>
+</body>
+</html>

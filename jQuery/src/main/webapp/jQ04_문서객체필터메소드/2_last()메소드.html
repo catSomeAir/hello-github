@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<script>
+	//●filter메소드로 재선택
+$(document).ready(function(){
+	//①메소드로 선택
+	$("h1").filter(".second").css("color","red");
+	
+	//②선택자로 선택
+	$("h2:filter('.second')").css("text-decoration","underline");
+	
+});//ready
+
+</script>
+</head>
+<body>
+	<h1>제목태그</h1>
+	<h1 class="second">제목태그</h1>
+	<h1>제목태그</h1>
+	<h1>제목태그</h1>
+	<h1>제목태그</h1>
+	
+	<h2>제목태그</h2>
+	<h2 class="second">제목태그</h2>
+	<h2>제목태그</h2>
+	<h2>제목태그</h2>
+	<h2>제목태그</h2>
+	
+	
+</body>
+</html>

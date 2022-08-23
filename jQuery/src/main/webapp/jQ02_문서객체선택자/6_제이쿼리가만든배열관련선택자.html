@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	div{
+		padding : 20px;
+		float : left;
+	}
+</style>
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<script>
+//1. 배열 인덱스로 선택 :eq		,0번부터
+$(document).ready(function(){
+	$("div:eq(0)").css("background-color","red");
+	$("div:eq(1)").css("background-color","orange");
+	$("div:eq(2)").css("background-color","yellow");
+	$("div:eq(3)").css("background-color","green");
+	$("div:eq(4)").css("background-color","blue");
+	$("div:eq(5)").css("background-color","navy");
+	$("div:eq(6)").css("background-color","purple");
+	
+	//2.첫번째 마지막, first: 배열요소에서 첫번째  last
+	$("div:first").css("border-radius","10px 0px 0px 10px");
+	$("div:last").css("border-radius","0px 10px 10px 0px");
+	
+	//3. 홀수번째 짝수번째
+	$("div:odd").css("color","white");
+	$("div:even").css("color","gray");
+	
+	//4. 인덱스n 이전, 이후 : gt(n) : greater than > , lt(n) : less than <
+	
+	$("div:gt(3)").css("text-decoration","underline");
+	$("div:lt(3)").css("font-style","italic");
+	
+	
+});//ready
+
+</script>
+</head>
+<body>
+	<div>레드</div>
+	<div>오렌지</div>
+	<div>옐로우</div>
+	<div>그린</div>
+	<div>블루</div>
+	<div>네이비</div>
+	<div>퍼플</div>
+</body>
+</html>

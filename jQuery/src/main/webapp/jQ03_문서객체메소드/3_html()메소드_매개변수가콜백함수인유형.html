@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<script>
+//● jQ로 html받기 : 제목태그 값 에 1,2,3을 추가해보자 
+$(document).ready(function(){
+	//③ 콜백함수를 이용하여 기존html에 문자추가하여 돌려주기 function, return
+	$("h1").html(function(index){
+		return 'titile tag' + (index+1)
+	});
+	//④ 콜백함수를 이용하여 기존html에 다른값 뒤에 번호 추가하여 돌려주기 function, return
+	$("h2").html(function(index,data){
+		return data + (index+1)
+	});
+});//ready
+
+</script>
+</head>
+<body>
+	<h1>제목태그</h1>
+	<h1>제목태그</h1>
+	<h1>제목태그</h1>
+	
+	<h2>제목</h2>
+	<h2>제목태</h2>
+	<h2>제목태그</h2>
+</body>
+</html>

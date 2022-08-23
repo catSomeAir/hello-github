@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<script>
+
+$(document).ready(function(){
+		$("#start_ajax").click(function(){
+			
+			$.ajax({			//클릭하면 ajax통신 할거야
+				url: "data/data.xml",			
+				
+				success : function(result){
+					$(result).find("product").each(function(){		 //xml문서에서 product태그 안에 있는 친구들 불러오고싶음
+						var name = $(this).find("name").text();				//태그 안에 있는 문자들 : text();, this : product태그임
+						var price = $(this).find("price").text();				//태그 안에 있는 문자들 : text();, this : product태그임
+						
+						//바디에 객체화된 변수 쓰기
+						$("body").append("<h3>" + name + " : " + price + "</h3>");
+						
+					});		//each() : 반복해서 모두 읽어들이는 메소드
+								
+				} //success()
+			});//ajax
+			
+		});
+	
+		
+	
+});//ready
+
+</script>
+</head>
+<body>
+	<button type="button" id="start_ajax">서버와 통신시작</button>
+</body>
+</html>

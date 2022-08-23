@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>jQuery Ajax Basic</title>
+<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+<script>
+	// $.getJSON() 메서드 => JSON을 쉽게 가져올수 있다.
+	$(document).ready(function() {
+		
+		$("#start_ajax").click(function(){
+			
+			$.ajax({
+				
+				url : "data/data.json",
+				type : "post",
+				success: function(result) {
+					$(result).each(function(key, value) { //json파일인 경우 each(function(key, value)); 메서드 사용
+						$("body").append("<h1>" + value.name + " : " + value.dollar	+ " : " 
+								+ value.won	+ "</h1>");
+					}); //each
+				} //success
+			}); //ajax
+			
+		}); //click
+		
+	});
+</script>
+</head>
+<body>
+	<button id="start_ajax">서버와 통신시작</button>
+</body>
+</html>

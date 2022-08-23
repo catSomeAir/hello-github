@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<script>
+//● jQ로 html받기 : 제목태그의 각각의 폰트사이즈를 변경해보자
+$(document).ready(function(){
+	//기존 css 속성, 속성값
+	$("h1").css("font-size",function(index){
+		return (index+1)*10;
+	});
+
+});//ready
+
+</script>
+</head>
+<body>
+	<h1>제목태그1</h1>
+	<h1>제목태그2</h1>
+	<h1>제목태그3</h1>
+	
+</body>
+</html>

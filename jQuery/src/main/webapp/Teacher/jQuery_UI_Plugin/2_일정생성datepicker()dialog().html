@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title></title>
+<link rel="stylesheet" href="ui-lightness/jquery-ui.css">
+<style type="text/css">
+	body {
+		font-size: 62.5%;
+	}
+	
+	h1 {
+		text-align: center;
+	}
+	
+	input[type="text"],label {
+		margin-bottom: 12px;
+		padding: 0.4em;
+		width: 95%;
+	}
+</style>
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<script src="ui-lightness/jquery-ui.js"></script>
+
+<script>
+
+$(document).ready(function() {
+
+	//dialog 플러그인 : dialog()메서드, 대화형, ★★★div 태그에 적용하는 플러그인
+	//datepicker 플러그인 : datepicker()메서드, ★★★input[type='text'] 태그에 적용하는 플러그인
+	
+	//중요한것은 같은 이름의 메서가 핵심, 즉 이름이 메서드
+	//대부분에 테마 클래스는 div 태그에 적용
+	//테마 클래스는 background, border, color, font 속성만 제공
+	//여백이나 크기속성은 제공하지 않아 별도로 margin이나 padding 속성은 입력한다.
+	
+	$("#open_button").click(function() {
+		$("#dialog").dialog("open"); //대화창 열기
+	}); //open_button click
+	
+	$("#dialog").dialog({ //dialog 옵션으로 객체 생성
+		autoOpen: false, //세미콜론없음, 컴마로 구분, 다이알로그 창 자동생성 방지
+		buttons: { //button라는 옵션 객체
+			확인: function(){
+				$("#output").append("<h1>" + $("#event_name").val() + " : " 
+						+ $("#event_date").val() +"</h1>");
+// 				$("#event_name").val() ="" //지우기, 틀린문법
+// 				event_name.value =""; //지우기, JS일때 맞는 문법, no question
+				$("#event_name").val(""); //지우기, jQuery일때 메서드이기 때문에
+				$("#event_date").val(""); //지우기, jQuery일때 메서드이기 때문에
+				$("#dialog").dialog("close"); //대화창 닫기
+			}, //세미콜론없음, 컴마로 구분
+			
+			초기화: function(){
+				$("#event_name").val(""); //지우기, jQuery일때 메서드이기 때문에
+				$("#event_date").val(""); //지우기, jQuery일때 메서드이기 때문에
+				$("#event_name").focus(); //
+			}, //세미콜론없음, 컴마로 구분
+			
+			취소: function(){
+				$("#event_name").val(""); //지우기, jQuery일때 메서드이기 때문에
+				$("#event_date").val(""); //지우기, jQuery일때 메서드이기 때문에
+				$("#dialog").dialog("close"); //대화창 닫기
+			} //세미콜론없음, 마지막 옵션은 컴마가 없음
+		},
+		modal: true //세미콜론없음
+	}); //dialog
+	
+	
+	$("#event_date").datepicker({//datepicker 옵션으로 객체 생성
+		dateFormat: "yy년 mm월 dd일",  //세미콜론없음, 컴마로 구분
+		numberOfMonths: 3	//세미콜론없음, 마지막 옵션은 컴마가 없음
+	});
+	
+}); //ready
+
+</script>
+</head>
+<body>
+	<h1 id="open_button">일정생성</h1>
+	<hr />
+	<div id="output"></div>
+	
+	<div id="dialog" title="jQuery UI Dialog">
+		<h1>Hello jQuery UI ... !</h1>
+		
+		<label for="event_name">일정이름</label>
+		<input type="text" id="event_name" />
+		<label for="event_date">날짜</label>
+		<input type="text" id="event_date" />
+	</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Ajax</title>
+<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+<script>
+	//$(function() {
+	$(document).ready(function() {
+
+		document.member.onsubmit = function() {
+		//document.getElementById("member").onsubmit = function() {
+		//$("#member").submit(function() {//"확인"버튼을 눌렀을 때...
+		//$("#member").on("submit", function() {//"확인"버튼을 눌렀을 때...
+
+			$.ajax({
+				url: "data/serialize.jsp", //데이터 전송 및 요청할 URL 주소
+				
+  			data : { 
+  				name : $("#name").val(),
+  				tel : $("#tel").val()
+  			}, //data
+				//★★★★data : $("form").serialize(), //서버로 전송할 데이터, 폼 요소에 전송할 데이터를 재가공합니다.
+				//★★★★data : $(this).serialize(), //서버로 전송할 데이터, 폼 요소에 전송할 데이터를 재가공합니다.
+				//★★★★data : $("#member").serialize(), //서버로 전송할 데이터, 폼 요소에 전송할 데이터를 재가공합니다.
+				success : function(result) { //전송 및 요청한 데이터를 정상적으로 가져왔을 때
+					$("#txt").text(result);
+				} //success
+				
+			}); //ajax
+
+			return false; //★★★★★★ action 페이지로 전환되는 것을 차단합니다.
+
+		}; //onsubmit
+		
+	}); //ready
+</script>
+</head>
+
+<body>
+	<form action="#" method="post" name="member" id="member" style="width: 310px;">
+		<fieldset>
+			<legend>회원가입</legend>
+			<table>
+				<tr>
+					<td><label for="name">이름</label></td>
+					<td><input type="text" name="name" id="name" /></td>
+				</tr>
+				<tr>
+					<td><label for="tel">전화번호</label></td>
+					<td><input type="text" name="tel" id="tel" /></td>
+				</tr>
+				<tr style="text-align: center;">
+					<td colspan="2">
+						<input type="submit" value="확인" style="margin-top: 10px;" />
+						<input type="reset"  value="취소" style="margin-top: 10px;" />
+					</td>
+				</tr>
+			</table>
+		</fieldset>
+	</form>
+	<h1 id="txt"></h1>
+</body>
+</html>

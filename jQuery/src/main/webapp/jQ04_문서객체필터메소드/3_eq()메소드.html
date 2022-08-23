@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<script>
+	//●last메소드로 재선택
+$(document).ready(function(){
+	//①메소드로 선택
+	$("h1").last().css("color","red");
+	
+	//②선택자로 선택
+	$("h2:lst").css("text-decoration","underline");
+	
+	//③콜백함수를 통해서 배열번호를 사용하도록 처리
+	//h1 태그중에(선택자), index가 3배수인 애들만(function(index){return}) 스타일지정해라(.css("속성","속성값")) 
+	$("h1").filter(function(index){
+			return index%3 == 0;
+	}).css("text-decoration","underline");
+	
+	
+});//ready
+
+</script>
+</head>
+<body>
+	<h1>제목태그</h1>
+	<h1>제목태그</h1>
+	<h1>제목태그</h1>
+	<h1>제목태그</h1>
+	<h1>제목태그</h1>
+	
+	<h2>제목태그</h2>
+	<h2>제목태그</h2>
+	<h2>제목태그</h2>
+	<h2>제목태그</h2>
+	<h2>제목태그</h2>
+	
+	
+</body>
+</html>

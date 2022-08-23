@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>JSON 파싱</title>
+
+<style>
+</style>
+
+<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+
+<script>
+	//$(function(){})의 기능은 body의 구조를 파악하자 마자
+	//$(function() { 
+	$(document).ready(function() {
+		
+		$("#start_ajax").click(function(){
+			
+			$.ajax({
+				
+				url : "data/loginCheck.json",	// 찾아갈 경로
+				type : "POST", // 서버로 보낼 형태 type GET, POST, 생략가능  
+				
+				dataType : "json",//datatype : 서버에서 받아올 데이터를 타입. 생략권장 
+					//xml, json, html, script를 선택할 수 있다.
+					//contentType : "application/x-www-form-urlencoded; charset=UTF-8",
+					
+				success : function(result) {
+					// result : 서버에서 Ajax 통신이 성공했을때 가져올 result
+					// json의 경우는 result는 파싱된 결과		      	
+					// $.each(result, function(index, data) {
+					$(result).each(function(key, value) {
+						$("body").append("<h1>id : " + value.id 
+														 + ", pw : " + value.pw 
+														 + ", email : " + value.email + "</h1>");
+					}); //each function
+					
+				} //success function
+				
+			}); //ajax
+						
+		}); //click function
+						
+	}); //ready
+</script>
+
+</head>
+<body>
+	<button id="start_ajax">서버와 통신시작</button>
+</body>
+
+</html>

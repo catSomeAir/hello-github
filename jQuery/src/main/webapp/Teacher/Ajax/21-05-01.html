@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>jQuery Ajax Basic</title>
+<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+<script>
+	// jQuery에서 제공하는 기본적인 $.ajax() 메서드
+	// 형태1 => $.ajax(url, {옵션객체})
+	// 형태2 => $.ajax({옵션객체}) ☜ 주로 사용
+	
+	$(document).ready(function() {
+		
+		$("#start_ajax").click(function(){
+			
+			$.ajax({ //function 아니고 객체 {}
+				
+				url:"data/data.jsp", //서버에 요청할 url
+				type:"post",
+
+				data : {
+					name : $("#name").val() //★★★★세미콜론 없음
+				}, //data : 서버로 데이터를 전송할 때 사용한다.
+				
+				success: function(result){
+					alert("통신성공");
+					$("#txt").text("이름 : " + result);
+				}, //success
+				
+				error: function(xhr, status, error) {
+					alert("통신에러");
+				}	//error
+			}); //ajax
+			
+		}); //click
+
+	}); //ready
+</script>
+
+</head>
+<body>
+	<input type="text" id="name" name="name" />
+	<button id="start_ajax">서버와 통신시작</button>
+	<p id="txt"></p>
+</body>
+</html>
+
+
+
