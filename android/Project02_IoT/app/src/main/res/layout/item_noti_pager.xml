@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<!--ViewPager에 아이템으로 (layout)사용되는 자식 요소의 최상위 레이아웃은
+   부모 크기만큼 늘어나있어야함 .
+   (ViewPager의 크기를 조절해야함 )item크기 조절 x : wrap_content x  , dp x
+-->
+    <ImageView
+        android:id="@+id/imgv_pager"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:src="@drawable/banner1"
+        android:scaleType="fitXY"
+        />
+
+</LinearLayout>

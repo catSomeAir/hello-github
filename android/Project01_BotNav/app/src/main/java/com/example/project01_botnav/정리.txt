@@ -1,0 +1,14 @@
+
+-BottomNavigation
+사용자에게 아이콘과 메뉴이름을 보여주고 해당하는 메뉴의 기능을 연동시키기 위한 위젯
+(ex.카카오톡 하단 : 친구목록 , 채팅목록 , 설정까지 )
+1. 메뉴를 먼저 만듬 ( 기본적으로 있는 res dir가 아니라 새로 만들어야함 )
+-res에 마우스 오른쪽 클릭을 해서 디렉토리 추가를 먼저함.=> new Android res dir 추가=>menu선택
+-메뉴 리소스 파일 추가하기.(메뉴 디렉토리에 마우스 오른쪽 클릭 후 메뉴 리소스 파일 추가)
+
+2. 메인 액티비티(사용할 액티비티에 접근)
+-BottomNavigation 위젯을 추가한다.
+ app:menu="@menu/bottom_nav" <- 1번에서 만든 메뉴랑 연결 하기
+ app:itemIconTint="@drawable/btm_item" <- 아이템이 선택되거나 안되었을때 색을 달리주기 위한 처리
+ app:itemTextColor="@drawable/btm_item" <- 위랑 같음 글자색임
+ android:id="@+id/bttom_nav"/> <- 자바에서 찾아서 사용하기위해서 아이디줌

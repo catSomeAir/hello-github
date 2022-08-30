@@ -1,0 +1,9 @@
+1.참조 문서
+https://navermaps.github.io/android-map-sdk/guide-ko/1.html
+
+2. 의존성 주입 할때 (setting.gradle , project-gradle에 추가할것)
+maven { url 'https://naver.jfrog.io/artifactory/maven/'}
+
+3. API 추가 ( module.gradle )
+dependencies 태그안에 넣어주기
+  implementation 'com.naver.maps:map-sdk:3.15.0'

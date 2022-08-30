@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+   <androidx.cardview.widget.CardView
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       app:cardCornerRadius="10dp"
+       android:elevation="5dp"
+       app:cardUseCompatPadding="true">
+
+       <LinearLayout
+           android:id="@+id/ln_emp"
+           android:background="#123456"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:orientation="horizontal"
+           android:padding="10dp">
+
+
+           <LinearLayout
+               android:layout_width="0dp"
+               android:layout_height="wrap_content"
+               android:layout_weight="2"
+               android:orientation="vertical">
+
+               <LinearLayout
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:orientation="horizontal">
+               <TextView
+                   android:id="@+id/emp_name"
+                   android:textStyle="bold"
+                   android:textSize="20dp"
+                   android:textColor="#fff"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:text="이름"/>
+                   <TextView
+                       android:id="@+id/emp_id"
+                       android:layout_marginLeft="10dp"
+                       android:textStyle="bold"
+                       android:textSize="15dp"
+                       android:textColor="#fff"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:text="(사번)"/>
+               </LinearLayout>
+
+               <TextView
+                   android:id="@+id/dept_name"
+                   android:textStyle="bold"
+                   android:textSize="20dp"
+                   android:textColor="#fff"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:text="부서명"/>
+               <TextView
+                   android:id="@+id/emp_email"
+                   android:textStyle="bold"
+                   android:textSize="20dp"
+                   android:textColor="#fff"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:text="이메일"/>
+           </LinearLayout>
+
+           <ImageView
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:src="@drawable/ic_launcher_foreground"/>
+
+       </LinearLayout>
+
+
+
+   </androidx.cardview.widget.CardView>
+
+
+</LinearLayout>

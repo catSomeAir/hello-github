@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".customer.CusDetailActivity"
+    android:orientation="vertical"
+    android:padding="20dp">
+
+    <TextView
+        android:id="@+id/tv_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="누구누구의 고객정보"
+        android:textAlignment="center"
+        android:textSize="30dp"
+        android:textColor="#000"
+        android:textStyle="bold"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="성별 : "
+            android:textAlignment="textEnd"
+            android:layout_weight="2"/>
+        <RadioGroup
+            android:id="@+id/rdo_grp"
+            android:layout_weight="2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/rdo_man"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="남"/>
+        <RadioButton
+            android:id="@+id/rdo_woman"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="여"/>
+        </RadioGroup>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="이메일 : "
+            android:textAlignment="textEnd"
+            android:layout_weight="2"/>
+        <EditText
+            android:id="@+id/edt_email"
+            android:layout_weight="2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="전화번호 : "
+            android:textAlignment="textEnd"
+            android:layout_weight="2"/>
+        <EditText
+            android:id="@+id/edt_phone"
+            android:layout_weight="2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            />
+    </LinearLayout>
+
+    <Button
+        android:backgroundTint="#1F4A24"
+        android:id="@+id/btn_update"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="정보 수정"/>
+
+    <Button
+
+        android:backgroundTint="#730F0F"
+        android:id="@+id/btn_close"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="닫기"/>
+
+
+
+</LinearLayout>

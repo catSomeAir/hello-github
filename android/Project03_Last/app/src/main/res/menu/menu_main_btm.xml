@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/menu1"
+        android:title="NAVER MAP"
+        android:icon="@drawable/menu_map_ic"/>
+    <item
+        android:id="@+id/menu2"
+        android:title=" KYM "
+        android:icon="@drawable/menu_unknwon_ic"/>
+    <item
+        android:id="@+id/menu3"
+        android:title=" KYM "
+        android:icon="@drawable/menu_unknwon_ic"/>
+    <item
+        android:id="@+id/menu4"
+        android:title=" KYM "
+        android:icon="@drawable/menu_unknwon_ic"/>
+</menu>
