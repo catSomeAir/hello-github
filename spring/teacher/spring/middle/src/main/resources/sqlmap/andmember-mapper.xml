@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="andmember">
+<!-- Android에서 소셜로 로그인인지 일반인지를 판단해서 보내줌=>Spring
+	판단해서 보내준값을 가지고 AND조건을 붙일껀지 말껀지를 mybatis에서 판단.
+  -->
+<select id="login" resultType="member.AndMemberVO">
+SELECT * FROM AND_MEMBER 
+WHERE EMAIL=#{email}
+AND PW = #{pw,jdbcType=VARCHAR}
+<!-- <if test='socail=="Y"'>
+AND PW = #{pw,jdbcType=VARCHAR}
+</if> -->
+</select>
+<select id="sociallogin" resultType="member.AndMemberVO">
+SELECT * FROM AND_MEMBER 
+WHERE EMAIL=#{email}
+</select>
+<insert id="join">
+	insert into and_member ( email ,  pw, name, gender, file_path)
+			values ( #{email} ,  #{pw,jdbcType=VARCHAR}, #{name}, #{gender}, #{file_path,jdbcType=VARCHAR} )
+
+</insert>
+
+
+</mapper>

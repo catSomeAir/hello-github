@@ -1,0 +1,7 @@
+INDEX VERSION 1.4+D:\ChossLec\Arduino_191107\아두이노 수업\아두이노 수업_진행\_39_MyTalk_esp8266Wifi\SpringWorkspace\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+2663915634.index
+3810253394.index
+3345979146.index
+166789756.index
+2124860518.index
+3478967113.index
