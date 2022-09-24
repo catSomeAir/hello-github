@@ -34,7 +34,7 @@ public class CommonService {
 		mail.setCharset("utf-8");
 		mail.setDebug(true); //메일전송과정 로그로 확인
 		
-		//로그인아이디, 비번 입력하기
+		//로그인아이디, 비번 입력하기 : 개인정보노출위험
 		mail.setAuthentication("보내는사람 메일아이디", "비번");
 		mail.setSSLOnConnect(true); //로그인버튼 누르기
 		
